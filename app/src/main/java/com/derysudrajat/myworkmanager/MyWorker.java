@@ -25,7 +25,7 @@ import static android.content.Context.NOTIFICATION_SERVICE;
 
 public class MyWorker extends Worker {
 
-    public static final String EXTRA_CITY = "city";
+    static final String EXTRA_CITY = "city";
     private static final String TAG = MyWorker.class.getSimpleName();
     private static final String APP_ID = "ffe6e8d1a32a7d67744cf57cc3bba487";
     private static final int NOTIFICATION_ID = 1;
@@ -41,8 +41,7 @@ public class MyWorker extends Worker {
     @Override
     public Result doWork() {
         String dataCity = getInputData().getString(EXTRA_CITY);
-        Result status = getCurrentWeather(dataCity);
-        return status;
+        return getCurrentWeather(dataCity);
     }
 
     private Result getCurrentWeather(final String city) {
